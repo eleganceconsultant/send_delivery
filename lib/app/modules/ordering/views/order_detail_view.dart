@@ -164,22 +164,22 @@ class OrderDetailView extends GetView {
                   child: ElevatedButton(
                     onPressed: () {
                       orderController.stripeMakePayment();
-                      // Get.bottomSheet(BottomSheet(
-                      //     onClosing: () {},
-                      //     builder: (context) {
-                      //       return Container(
-                      //         padding: EdgeInsets.all(20),
-                      //         width: size.width,
-                      //         height: size.height / 3,
-                      //         child: Column(children: [
-                      //           SizedBox(
-                      //             width: size.width,
-                      //             height: 150,
-                      //               child: Lottie.network('https://lottie.host/f2847038-38d8-4ef6-80cd-8e5c1720a5d0/dJXmDGqjbO.json'),),
-                      //               Text("กำลังค้นหาไรเดอร์...")
-                      //         ]),
-                      //       );
-                      //     }));
+                      Get.bottomSheet(BottomSheet(
+                          onClosing: () {},
+                          builder: (context) {
+                            return Container(
+                              padding: EdgeInsets.all(20),
+                              width: size.width,
+                              height: size.height / 3,
+                              child: Column(children: [
+                                SizedBox(
+                                  width: size.width,
+                                  height: 150,
+                                    child: Lottie.network('https://lottie.host/f2847038-38d8-4ef6-80cd-8e5c1720a5d0/dJXmDGqjbO.json'),),
+                                    Text("กำลังค้นหาไรเดอร์...")
+                              ]),
+                            );
+                          }));
                     },
                     child: Text(
                       "ถัดไป",

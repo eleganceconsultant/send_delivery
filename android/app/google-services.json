@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "847898737291",
+    "firebase_url": "https://send-good-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "send-good",
+    "storage_bucket": "send-good.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847898737291:android:0fc97a4d6574257783728e",
+        "android_client_info": {
+          "package_name": "com.sendcompany.send_delivery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgYAJHbDOPZa_U85qGK2KtrCmXmll7F8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,45 @@
+name: send_delivery
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: 4.6.6
+  another_flutter_splash_screen: ^1.2.0
+  google_fonts: ^6.1.0
+  flutter_pin_code_fields: ^2.2.0
+  location: ^5.0.0
+  icons_launcher: ^2.1.7
+  social_login_buttons: ^1.0.7
+  intl_phone_number_input: 
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  flutter_svg: ^2.0.9
+  flutter_image_slideshow: ^0.1.6
+  geolocator: ^10.1.0
+  lottie: ^3.0.0
+  google_maps_flutter: ^2.5.3
+  flutter_dotenv: ^5.1.0
+  flutter: 
+    sdk: flutter
+  http: ^1.2.0
+  geocoding: ^2.1.1
+  flutter_stripe: ^10.0.0
+
+dev_dependencies: 
+  #flutter_lints: ^3.0.1
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/.env
+   
+  
+

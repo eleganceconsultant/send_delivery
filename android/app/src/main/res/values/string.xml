@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Send Delivery</string>
+  <string name="facebook_app_id">Send Delivery</string>
+  <string name="fb_login_protocol_scheme">fb406655811788433</string>
+  <string name="facebook_client_token">406655811788433</string>
+</resources>

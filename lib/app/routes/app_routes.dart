@@ -10,6 +10,7 @@ abstract class Routes {
   static const WASH_LIST = _Paths.WASH_LIST;
   static const ORDERING = _Paths.ORDERING;
   static const REGISTER = _Paths.REGISTER;
+  static const MAIN = _Paths.MAIN;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const WASH_LIST = '/wash-list';
   static const ORDERING = '/ordering';
   static const REGISTER = '/register';
+  static const MAIN = '/main';
 }

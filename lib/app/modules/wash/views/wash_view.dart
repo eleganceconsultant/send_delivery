@@ -42,31 +42,51 @@ class WashView extends GetView<WashController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(40,50,0,20),
-              child: Text("เลือกร้านค้า",style: GoogleFonts.notoSansThai(fontSize: 30),),
+              padding: EdgeInsets.fromLTRB(40, 50, 0, 20),
+              child: Text(
+                "เลือกร้านค้า",
+                style: GoogleFonts.notoSansThai(fontSize: 30),
+              ),
             ),
-           Container(
-            padding: EdgeInsets.symmetric(horizontal: 30,vertical: 20),
-             child: Obx(() => washController.isLoad.value == false ? GridView.builder(
-              shrinkWrap: true,
-                itemCount: washController.brandsResponse!.data.length,
-                gridDelegate:
-                    SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 3,crossAxisSpacing: 5),
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: (){
-                     
-                        Get.to(()=>WashListView(), arguments: washController.brandsResponse!.data[index].attributes.name);
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(image: DecorationImage(image: NetworkImage(mainLink+washController.brandsResponse!.data[index].attributes.image.data.attributes.url))),
-                    ),
-                  );
-              
-                },
-              ):LottieBuilder.network(
-                                "https://lottie.host/2344b9c1-42db-46d7-90d7-ba8c4a269ecc/axgM0r94Bg.json")),
-           )
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              child: Obx(() => washController.isLoad.value == false
+                  ? GridView.builder(
+                      shrinkWrap: true,
+                      itemCount: washController.brandsResponse!.data.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 3,
+                          crossAxisSpacing: 5),
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            Get.to(() => WashListView(),
+                                arguments: washController.brandsResponse!
+                                    .data[index].attributes.name);
+                            washCtr.name.value = washController
+                                .brandsResponse!.data[index].attributes.name;
+                                print(washCtr.name.value);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(mainLink +
+                                        washController
+                                            .brandsResponse!
+                                            .data[index]
+                                            .attributes
+                                            .image
+                                            .data
+                                            .attributes
+                                            .url))),
+                          ),
+                        );
+                      },
+                    )
+                  : LottieBuilder.network(
+                      "https://lottie.host/2344b9c1-42db-46d7-90d7-ba8c4a269ecc/axgM0r94Bg.json")),
+            )
           ],
         ),
       ),

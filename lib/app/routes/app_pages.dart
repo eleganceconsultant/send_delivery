@@ -5,6 +5,8 @@ import '../modules/home/views/home_page_view.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/main/bindings/main_binding.dart';
+import '../modules/main/views/main_view.dart';
 import '../modules/ordering/bindings/ordering_binding.dart';
 import '../modules/ordering/views/ordering_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -19,7 +21,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOMEPAGE;
+  static const INITIAL = Routes.MAIN;
 
   static final routes = [
     GetPage(
@@ -55,6 +57,11 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => const RegisterView(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.MAIN,
+      page: () => const MainView(),
+      binding: MainBinding(),
     ),
   ];
 }

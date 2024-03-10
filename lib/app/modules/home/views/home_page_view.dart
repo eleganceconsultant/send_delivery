@@ -14,6 +14,8 @@ class HomePageView extends GetView {
   Widget build(BuildContext context) {
     final homeController = Get.put(HomeController());
     Size size = MediaQuery.of(context).size;
+    final width = Get.width;
+    final height = Get.height;
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
@@ -106,7 +108,7 @@ class HomePageView extends GetView {
             ),
             Container(
               width: size.width,
-              margin: EdgeInsets.only(top: 50, bottom: 10, left: 40),
+              margin: EdgeInsets.only(top: 20, left: 40),
               child: Text(
                 "บริการ",
                 style: GoogleFonts.notoSansThai(
@@ -119,35 +121,54 @@ class HomePageView extends GetView {
             Obx(
               () => homeController.isLoad.value == false
                   ? SizedBox(
-                    height: 120,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: homeController.moduleResponse!.data.length,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              InkWell(
-                                onTap: (){
-                                  Get.to(() => WashView());
-                                },
-                                child: Container(
-                                  width: size.width-20,
-                                  height: size.height/8,
-                                  padding: EdgeInsets.symmetric(horizontal:20),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    
+                      height: 140,
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: homeController.moduleResponse!.data.length,
+                          itemBuilder: (context, index) {
+                            return Column(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Get.to(() => WashView());
+                                  },
+                                  child: Container(
+                                    width: size.width - 10,
+                                    height: size.height / 7,
+                                    // padding: EdgeInsets.symmetric(horizontal:20),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                    child: Image.network(mainLink +
+                                        homeController
+                                            .moduleResponse!
+                                            .data[index]
+                                            .attributes
+                                            .image
+                                            .data
+                                            .attributes
+                                            .url),
                                   ),
-                                  child: Image.network(mainLink+homeController.moduleResponse!.data[index].attributes.image.data.attributes.url),
                                 ),
-                              ),
-                    
-                            ],
-                          );
-                        }),
-                  )
-                  : Container(child: Text("No Data"),),
+                              ],
+                            );
+                          }),
+                    )
+                  : Container(
+                      child: Text("No Data"),
+                    ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BuyCard(),
+                  Spacer(),
+                  SendCard()
+                ],
+              ),
             ),
             Container(
               width: size.width,
@@ -186,5 +207,140 @@ class HomePageView extends GetView {
         ),
       ),
     ));
+  }
+}
+
+class SendCard extends StatelessWidget {
+  const SendCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 172,
+        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(19),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color:
+                  Colors.grey.withOpacity(0.5), //color of shadow
+              spreadRadius: 3, //spread radius
+              blurRadius: 10, // blur radius
+              offset: Offset(0, 2), // changes position of shadow
+              //first paramerter of offset is left-right
+              //second parameter is top to down
+            ),
+            //you can set more BoxShadow() here
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xFFFFF1CF),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Image.asset(
+                    "assets/Rectangle.png",
+                    scale: 10,
+                  ),
+                )),
+            SizedBox(
+              width: 5,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "สะดวกส่ง",
+                  style: TextStyle(
+                    fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF5B5B5B)
+                  )
+                ),
+                Text("บริการ รับ-ส่ง พัสดุ",
+                  style: TextStyle(
+                    fontSize: 9,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFFA3A3A3)
+                  )),
+              ],
+            )
+          ],
+        ));
+  }
+}
+
+
+class BuyCard extends StatelessWidget {
+  const BuyCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+         width: 172,
+         padding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(19),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color:
+                  Colors.grey.withOpacity(0.5), //color of shadow
+              spreadRadius: 3, //spread radius
+              blurRadius: 10, // blur radius
+              offset: Offset(0, 2), // changes position of shadow
+              //first paramerter of offset is left-right
+              //second parameter is top to down
+            ),
+            //you can set more BoxShadow() here
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xFFFFF1CF),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Image.asset(
+                    "assets/Rectangle 111.png",
+                    scale: 10,
+                  ),
+                )),
+            SizedBox(
+              width: 5,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "สะดวกซื้อ",
+                  style: TextStyle(
+                    fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF5B5B5B)
+                  )
+                ),
+                Text("สั่งซื้อสิ้นค้าจากร้านค้า",
+                  style: TextStyle(
+                    fontSize: 9,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFFA3A3A3)
+                  )),
+              ],
+            )
+          ],
+        ));
   }
 }

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:send_delivery/app/modules/home/controllers/home_controller.dart';
 import 'package:send_delivery/app/modules/ordering/controllers/ordering_controller.dart';
+import 'package:send_delivery/app/modules/status/views/status_view.dart';
 import 'package:send_delivery/util/constants.dart';
 
 class OrderDetailView extends GetView {
@@ -22,7 +23,7 @@ class OrderDetailView extends GetView {
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: ElevatedButton(
           onPressed: () {
-            
+            Get.to(() => StatusView());
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),

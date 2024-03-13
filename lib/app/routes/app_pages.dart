@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/chat/bindings/chat_binding.dart';
+import '../modules/chat/views/chat_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_page_view.dart';
 import '../modules/home/views/home_view.dart';
@@ -9,8 +11,12 @@ import '../modules/main/bindings/main_binding.dart';
 import '../modules/main/views/main_view.dart';
 import '../modules/ordering/bindings/ordering_binding.dart';
 import '../modules/ordering/views/ordering_view.dart';
+import '../modules/payment/bindings/payment_binding.dart';
+import '../modules/payment/views/payment_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/status/bindings/status_binding.dart';
+import '../modules/status/views/status_view.dart';
 import '../modules/wash/bindings/wash_binding.dart';
 import '../modules/wash/views/wash_view.dart';
 import '../modules/wash_list/bindings/wash_list_binding.dart';
@@ -62,6 +68,21 @@ class AppPages {
       name: _Paths.MAIN,
       page: () => const MainView(),
       binding: MainBinding(),
+    ),
+    GetPage(
+      name: _Paths.STATUS,
+      page: () => const StatusView(),
+      binding: StatusBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT,
+      page: () => const ChatView(),
+      binding: ChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT,
+      page: () => const PaymentView(),
+      binding: PaymentBinding(),
     ),
   ];
 }

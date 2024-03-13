@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:send_delivery/app/modules/home/views/home_page_view.dart';
 import 'package:send_delivery/app/modules/home/views/home_view.dart';
+import 'package:send_delivery/app/modules/payment/views/payment_view.dart';
 
 import '../controllers/main_controller.dart';
 
@@ -13,7 +14,7 @@ class MainView extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: getActiveTabPage(),
+        body: Obx(() =>  getActiveTabPage(),),
         bottomNavigationBar: Obx(
           () => SalomonBottomBar(
             currentIndex: mainCtr.currentIndex.value,
@@ -92,6 +93,8 @@ class MainView extends GetView<MainController> {
         return HomePageView();
       case 1:
         return HomePageView();
+      case 2:
+        return PaymentView();
       default:
         return const SizedBox.shrink();
     }

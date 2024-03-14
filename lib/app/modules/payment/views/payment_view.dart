@@ -11,6 +11,7 @@ class PaymentView extends GetView<PaymentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('เลือกวิธีการชำระเงิน'),
         centerTitle: true,
@@ -20,12 +21,25 @@ class PaymentView extends GetView<PaymentController> {
           children: [
             GestureDetector(
               onTap: () {
-                Get.to(() => Payment2View());
+               
+                paymentCtr.paymentType("Scb");
               },
               child: Image.asset("assets/scb.png")),
-            Image.asset("assets/promptpay.png"),
-            Image.asset("assets/viacash.png"),
-            Image.asset("assets/sendwallet.png"),
+            GestureDetector(
+              onTap: () {
+                paymentCtr.paymentType("PromptPay");
+              },
+              child: Image.asset("assets/promptpay.png")),
+            GestureDetector(
+              onTap: () {
+                paymentCtr.paymentType("Cash");
+              },
+              child: Image.asset("assets/viacash.png")),
+            GestureDetector(
+              onTap: () {
+                paymentCtr.paymentType("SendWallet");
+              },
+              child: Image.asset("assets/sendwallet.png")),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(

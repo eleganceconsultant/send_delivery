@@ -10,7 +10,7 @@ class ChatView extends GetView<ChatController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Facebook Chat'),
+        title: Text('Rider Chat'),
       ),
       body: ListView(
         padding: EdgeInsets.all(8.0),

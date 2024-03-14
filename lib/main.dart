@@ -30,7 +30,9 @@ Future<void> main() async {
       title: "Send Delivery",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
+    
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         fontFamily: GoogleFonts.notoSansThai().fontFamily)
       ),
     

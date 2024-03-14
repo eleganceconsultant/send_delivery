@@ -15,21 +15,20 @@ class OrderingView extends GetView<OrderingController> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+       backgroundColor: Colors.white,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Container(
           width: size.width,
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: ElevatedButton(
-
             onPressed: () {
-              orderingController.priceCal();
+                 orderingController.calAmount();
             },
             child: Text(
               "ยืนยัน",
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             style: ElevatedButton.styleFrom(
-             
               backgroundColor: Color(0xFF2FA8FF),
             ),
           ),
@@ -128,120 +127,9 @@ class OrderingView extends GetView<OrderingController> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 30, vertical: 5),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(color: Colors.blue),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey
-                                        .withOpacity(0.5), //color of shadow
-                                    spreadRadius: 1, //spread radius
-                                    blurRadius: 7, // blur radius
-                                    offset: Offset(
-                                        0, 4), // changes position of shadow
-                                    //first paramerter of offset is left-right
-                                    //second parameter is top to down
-                                  ),
-                                  //you can set more BoxShadow() here
-                                ],
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "10 KG",
-                                    style: GoogleFonts.notoSans(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blue),
-                                  ),
-                                  Text(
-                                    "40฿",
-                                    style: GoogleFonts.notoSans(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 30, vertical: 5),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(color: Colors.blue),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey
-                                        .withOpacity(0.5), //color of shadow
-                                    spreadRadius: 1, //spread radius
-                                    blurRadius: 7, // blur radius
-                                    offset: Offset(
-                                        0, 4), // changes position of shadow
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "18 KG",
-                                    style: GoogleFonts.notoSans(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blue),
-                                  ),
-                                  Text(
-                                    "50฿",
-                                    style: GoogleFonts.notoSans(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 30, vertical: 5),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(color: Colors.blue),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey
-                                        .withOpacity(0.5), //color of shadow
-                                    spreadRadius: 1, //spread radius
-                                    blurRadius: 7, // blur radius
-                                    offset: Offset(
-                                        0, 4), // changes position of shadow
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "22 KG",
-                                    style: GoogleFonts.notoSans(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blue),
-                                  ),
-                                  Text(
-                                    "60฿",
-                                    style: GoogleFonts.notoSans(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.black),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            tap10(),
+                            tap14(),
+                            tap18(),
                           ],
                         ),
                         SizedBox(
@@ -260,85 +148,181 @@ class OrderingView extends GetView<OrderingController> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              width: 170,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 30, vertical: 15),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(color: Colors.blue),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey
-                                        .withOpacity(0.5), //color of shadow
-                                    spreadRadius: 1, //spread radius
-                                    blurRadius: 7, // blur radius
-                                    offset: Offset(
-                                        0, 4), // changes position of shadow
-                                  ),
-                                ],
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "เพิ่มน้ำยา",
-                                    style: GoogleFonts.notoSansThai(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blue),
-                                  ),
-                                  Text(
-                                    " + 20฿",
-                                    style: GoogleFonts.notoSans(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black),
-                                  ),
-                                ],
-                              ),
+                            GestureDetector(
+                              onTap: () {
+                                orderingController.tapAddOn("li");
+                              },
+                              child: Obx(() => Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 30, vertical: 15),
+                                    decoration: BoxDecoration(
+                                      color:
+                                          orderingController.addLiquid.value ==
+                                                  true
+                                              ? Colors.green.shade100
+                                              : Colors.white,
+                                      border: Border.all(
+                                          color: orderingController
+                                                      .addLiquid.value ==
+                                                  true
+                                              ? Colors.green
+                                              : Colors.blue),
+                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(
+                                              0.5), //color of shadow
+                                          spreadRadius: 1, //spread radius
+                                          blurRadius: 7, // blur radius
+                                          offset: Offset(0,
+                                              4), // changes position of shadow
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "เพิ่มน้ำยา",
+                                          style: GoogleFonts.notoSansThai(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: orderingController
+                                                          .addLiquid.value ==
+                                                      true
+                                                  ? Colors.green
+                                                  : Colors.blue),
+                                        ),
+                                        Text(
+                                          " + 20฿",
+                                          style: GoogleFonts.notoSans(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black),
+                                        ),
+                                      ],
+                                    ),
+                                  )),
                             ),
-                            Container(
-                              width: 170,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 30, vertical: 15),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(color: Colors.blue),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey
-                                        .withOpacity(0.5), //color of shadow
-                                    spreadRadius: 1, //spread radius
-                                    blurRadius: 7, // blur radius
-                                    offset: Offset(
-                                        0, 4), // changes position of shadow
-                                  ),
-                                ],
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "อบผ้า",
-                                    style: GoogleFonts.notoSansThai(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.blue),
-                                  ),
-                                  Text(
-                                    " + 40฿",
-                                    style: GoogleFonts.notoSans(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black),
-                                  ),
-                                ],
-                              ),
+                            GestureDetector(
+                              onTap: () {
+                                orderingController.tapAddOn("dry");
+                              },
+                              child: Obx(() => Container(
+                                    
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 30, vertical: 15),
+                                    decoration: BoxDecoration(
+                                      color: orderingController.addDry.value ==
+                                              true
+                                          ? Colors.green.shade100
+                                          : Colors.white,
+                                      border: Border.all(
+                                          color:
+                                              orderingController.addDry.value ==
+                                                      true
+                                                  ? Colors.green
+                                                  : Colors.blue),
+                                      borderRadius: BorderRadius.circular(10),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(
+                                              0.5), //color of shadow
+                                          spreadRadius: 1, //spread radius
+                                          blurRadius: 7, // blur radius
+                                          offset: Offset(0,
+                                              4), // changes position of shadow
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "อบผ้า",
+                                          style: GoogleFonts.notoSansThai(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: orderingController
+                                                          .addDry.value ==
+                                                      true
+                                                  ? Colors.green
+                                                  : Colors.blue),
+                                        ),
+                                        Text(
+                                          " + 40฿",
+                                          style: GoogleFonts.notoSans(
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black),
+                                        ),
+                                      ],
+                                    ),
+                                  )),
                             ),
                           ],
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Text(
+                          "น้ำอุ่น",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Color(0xFF000000),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            orderingController.tapWater();
+                          },
+                          child: Obx(() => Container(
+                                width: 170,
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 30, vertical: 15),
+                                decoration: BoxDecoration(
+                                  color:
+                                      orderingController.addWater.value == true
+                                          ? Colors.green.shade100
+                                          : Colors.white,
+                                  border: Border.all(color: orderingController.addWater.value == true ?Colors.green : Colors.blue),
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey
+                                          .withOpacity(0.5), //color of shadow
+                                      spreadRadius: 1, //spread radius
+                                      blurRadius: 7, // blur radius
+                                      offset: Offset(
+                                          0, 4), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "น้ำอุ่น",
+                                      style: GoogleFonts.notoSansThai(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                          color: orderingController.addWater.value == true ?Colors.green : Colors.blue),
+                                    ),
+                                    Text(
+                                      " + 10฿",
+                                      style: GoogleFonts.notoSans(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
+                                    ),
+                                  ],
+                                ),
+                              )),
                         ),
                         SizedBox(
                           height: 150,
@@ -361,7 +345,7 @@ class OrderingView extends GetView<OrderingController> {
                         //     ),
                         //   ),
                         // )
-                      ], 
+                      ],
                     ),
                   ),
                 ),
@@ -495,6 +479,158 @@ class OrderingView extends GetView<OrderingController> {
             ),
           ),
         ));
+  }
+
+  GestureDetector tap18() {
+    return GestureDetector(
+      onTap: () {
+        // orderingController.tapWash14.value = true;
+        orderingController.tap(18);
+      },
+      child: Obx(() => Container(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+            decoration: BoxDecoration(
+              color: orderingController.tapWash18.value == true
+                  ? Colors.green.shade100
+                  : Colors.white,
+              border: Border.all(
+                  color: orderingController.tapWash18.value == true
+                      ? Colors.green
+                      : Colors.blue),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5), //color of shadow
+                  spreadRadius: 1, //spread radius
+                  blurRadius: 7, // blur radius
+                  offset: Offset(0, 4), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Text(
+                  "18 KG",
+                  style: GoogleFonts.notoSans(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: orderingController.tapWash18.value == true
+                          ? Colors.green
+                          : Colors.blue),
+                ),
+                Text(
+                  "70฿",
+                  style: GoogleFonts.notoSans(
+                      fontSize: 12,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black),
+                ),
+              ],
+            ),
+          )),
+    );
+  }
+
+  GestureDetector tap14() {
+    return GestureDetector(
+      onTap: () {
+        // orderingController.tapWash14.value = true;
+        orderingController.tap(14);
+      },
+      child: Obx(() => Container(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+            decoration: BoxDecoration(
+              color: orderingController.tapWash14.value == true
+                  ? Colors.green.shade100
+                  : Colors.white,
+              border: Border.all(
+                  color: orderingController.tapWash14.value == true
+                      ? Colors.green
+                      : Colors.blue),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5), //color of shadow
+                  spreadRadius: 1, //spread radius
+                  blurRadius: 7, // blur radius
+                  offset: Offset(0, 4), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Text(
+                  "14 KG",
+                  style: GoogleFonts.notoSans(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: orderingController.tapWash14.value == true
+                          ? Colors.green
+                          : Colors.blue),
+                ),
+                Text(
+                  "60฿",
+                  style: GoogleFonts.notoSans(
+                      fontSize: 12,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black),
+                ),
+              ],
+            ),
+          )),
+    );
+  }
+
+  GestureDetector tap10() {
+    return GestureDetector(
+      onTap: () {
+        orderingController.tap(10);
+      },
+      child: Obx(() => Container(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+            decoration: BoxDecoration(
+              color: orderingController.tapWash10.value == true
+                  ? Colors.green.shade100
+                  : Colors.white,
+              border: Border.all(
+                  color: orderingController.tapWash10.value == true
+                      ? Colors.green
+                      : Colors.blue),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5), //color of shadow
+                  spreadRadius: 1, //spread radius
+                  blurRadius: 7, // blur radius
+                  offset: Offset(0, 4), // changes position of shadow
+                  //first paramerter of offset is left-right
+                  //second parameter is top to down
+                ),
+                //you can set more BoxShadow() here
+              ],
+            ),
+            child: Column(
+              children: [
+                Text(
+                  "10 KG",
+                  style: GoogleFonts.notoSans(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: orderingController.tapWash10.value == true
+                          ? Colors.green
+                          : Colors.blue),
+                ),
+                Text(
+                  "40฿",
+                  style: GoogleFonts.notoSans(
+                      fontSize: 12,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black),
+                ),
+              ],
+            ),
+          )),
+    );
   }
 }
 

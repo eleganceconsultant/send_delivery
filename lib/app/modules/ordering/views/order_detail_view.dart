@@ -17,31 +17,35 @@ class OrderDetailView extends GetView {
     HomeController homeController = Get.find();
     final size = MediaQuery.of(context).size;
     return Scaffold(
+       backgroundColor: Colors.white,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(
-        width: size.width,  
+        width: size.width,
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: ElevatedButton(
           onPressed: () {
             Get.to(() => StatusView());
           },
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   "ยืนยันคำสั่ง",
-                  style: TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold),
-                  
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
-                Text(
-                  "120฿",
-                  style: GoogleFonts.notoSans(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white, fontSize: 24),
-                ),
+                Obx(() => Text(
+                      "${orderingCtr.amount.value}฿",
+                      style: GoogleFonts.notoSans(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 24),
+                    )),
               ],
             ),
           ),
@@ -104,16 +108,16 @@ class OrderDetailView extends GetView {
                   ),
                   Row(
                     children: [
-                      Text(
-                        "บริการซักผ้าน้ำหนัก 18 KG",
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Color(0xFF000000),
-                        ),
-                      ),
+                      Obx(() => Text(
+                            "บริการซักผ้าน้ำหนัก ${orderingCtr.washKg.value} KG",
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Color(0xFF000000),
+                            ),
+                          )),
                       Spacer(),
                       Text(
-                        "60.00฿",
+                        "${orderingCtr.washAmount.value}฿",
                         style: TextStyle(
                             fontSize: 13,
                             color: Color(0xFF000000),
@@ -136,7 +140,7 @@ class OrderDetailView extends GetView {
                       ),
                       Spacer(),
                       Text(
-                        "20.00฿",
+                        "${orderingCtr.liqid.value}฿",
                         style: TextStyle(
                             fontSize: 13,
                             color: Color(0xFF000000),
@@ -159,7 +163,7 @@ class OrderDetailView extends GetView {
                       ),
                       Spacer(),
                       Text(
-                        "40.00฿",
+                        "${orderController.dry.value}฿",
                         style: TextStyle(
                             fontSize: 13,
                             color: Color(0xFF000000),
@@ -205,7 +209,7 @@ class OrderDetailView extends GetView {
                       ),
                       Spacer(),
                       Text(
-                        "39.00฿",
+                        "49.00฿",
                         style: TextStyle(
                             fontSize: 13,
                             color: Color(0xFF000000),

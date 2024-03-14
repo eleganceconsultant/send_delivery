@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:send_delivery/app/modules/payment/views/payment2_view.dart';
 
 PaymentController paymentCtr = Get.put(PaymentController());
 
@@ -7,8 +8,13 @@ class PaymentController extends GetxController {
 
   final count = 0.obs;
 
-  RxBool status = true.obs;
-  RxString payType = "AAA".obs;
+  RxString payType = "".obs;
+
+
+  paymentType(type){
+     Get.to(() => Payment2View());
+    return payType.value = type;
+  }
   @override
   void onInit() {
     super.onInit();

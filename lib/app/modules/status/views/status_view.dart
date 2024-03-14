@@ -12,6 +12,7 @@ class StatusView extends GetView<StatusController> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(onPressed: statusCtr.set()),
       body: SingleChildScrollView(
         child: Stack(
@@ -109,7 +110,7 @@ class StatusView extends GetView<StatusController> {
                             ),
                           if (statusCtr.status.value == "Shop")
                             Text(
-                              "พัสดุของคุณถึงร้านตามความสั่ง",
+                              "พัสดุของคุณถึงร้านซักผ้า",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 15,
@@ -127,7 +128,7 @@ class StatusView extends GetView<StatusController> {
                             ),
                           if (statusCtr.status.value == "sendBack")
                             Text(
-                              "ไรเดอร์กำลังเข้าไปรับพัสดุ\nตามกพิกัดของคุณ",
+                              "ไรเดอร์กำลังเข้าไปส่งพัสดุ\nตามพิกัดของคุณ",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 15,

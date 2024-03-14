@@ -18,6 +18,7 @@ class WashListView extends GetView<WashListController> {
     final washListController = Get.put(WashListController());
     HomeController homeController = Get.find();
     return Scaffold(
+       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Container(
           child: TextButton.icon(

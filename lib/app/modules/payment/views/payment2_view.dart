@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:send_delivery/app/modules/payment/controllers/payment_controller.dart';
+import 'package:send_delivery/app/modules/payment/views/payment3_view.dart';
 
 class Payment2View extends GetView {
   const Payment2View({Key? key}) : super(key: key);
@@ -13,7 +14,9 @@ class Payment2View extends GetView {
       floatingActionButton: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(()=> Payment3View());
+          },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
@@ -40,7 +43,7 @@ class Payment2View extends GetView {
       body: SingleChildScrollView(
           child: Obx(() => Column(
                 children: [
-                  if (paymentCtr.payType.value == "BBB")
+                  if (paymentCtr.payType.value == "PromptPay")
                     Column(
                       children: [
                         Padding(
@@ -74,7 +77,7 @@ class Payment2View extends GetView {
                             )),
                       ],
                     ),
-                  if (paymentCtr.payType.value == "AAA")
+                  if (paymentCtr.payType.value == "Cash")
                     Column(
                       children: [
                         Padding(
@@ -128,7 +131,7 @@ class Payment2View extends GetView {
                             )),
                       ],
                     ),
-                  if (paymentCtr.status.value == false)
+                  if (paymentCtr.payType.value == "Scb")
                     Column(
                       children: [
                         Padding(

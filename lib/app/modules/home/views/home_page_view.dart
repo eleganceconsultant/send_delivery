@@ -17,6 +17,7 @@ class HomePageView extends GetView {
     final width = Get.width;
     final height = Get.height;
     return Scaffold(
+       backgroundColor: Colors.white,
         body: SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -118,55 +119,94 @@ class HomePageView extends GetView {
                 textAlign: TextAlign.left,
               ),
             ),
+             SizedBox(height: 10,),
             Obx(
               () => homeController.isLoad.value == false
-                  ? SizedBox(
-                      height: 140,
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: homeController.moduleResponse!.data.length,
-                          itemBuilder: (context, index) {
-                            return Column(
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    Get.to(() => WashView());
-                                  },
-                                  child: Container(
-                                    width: size.width - 10,
-                                    height: size.height / 7,
-                                    // padding: EdgeInsets.symmetric(horizontal:20),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    child: Image.network(mainLink +
-                                        homeController
-                                            .moduleResponse!
-                                            .data[index]
-                                            .attributes
-                                            .image
-                                            .data
-                                            .attributes
-                                            .url),
-                                  ),
-                                ),
-                              ],
-                            );
-                          }),
-                    )
+                  ? GestureDetector(
+                    onTap: () {
+                       Get.to(() => WashView());
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Image.asset("assets/Button Row img.jpg")),
+                  )
+                  // SizedBox(
+                  //     height: 140,
+                  //     child: ListView.builder(
+                  //         shrinkWrap: true,
+                  //         scrollDirection: Axis.horizontal,
+                  //         itemCount: homeController.moduleResponse!.data.length,
+                  //         itemBuilder: (context, index) {
+                  //           return Column(
+                  //             children: [
+                  //               InkWell(
+                  //                 onTap: () {
+                  //                   Get.to(() => WashView());
+                  //                 },
+                  //                 child: Container(
+                  //                   width: size.width - 10,
+                  //                   height: size.height / 7,
+                  //                   // padding: EdgeInsets.symmetric(horizontal:20),
+                  //                   // decoration: BoxDecoration(
+                  //                   //   borderRadius: BorderRadius.circular(50),
+                  //                   // ),
+                  //                   child: Image.network(mainLink +
+                  //                       homeController
+                  //                           .moduleResponse!
+                  //                           .data[index]
+                  //                           .attributes
+                  //                           .image
+                  //                           .data
+                  //                           .attributes
+                  //                           .url),
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           );
+                  //         }),
+                  //   )
                   : Container(
                       child: Text("No Data"),
                     ),
             ),
+            SizedBox(height: 40,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  BuyCard(),
+                  GestureDetector(
+                    onTap: () {
+                      Get.defaultDialog(
+                        title: "",
+                        content: Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: Column(
+                            children: [
+                              Text("Comming Soon")
+                            ],
+                          ),
+                        )
+                      );
+                    },
+                    child: BuyCard()),
                   Spacer(),
-                  SendCard()
+                  GestureDetector(
+                    onTap: () {
+                       Get.defaultDialog(
+                        title: "",
+                        content: Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: Column(
+                            children: [
+                              Text("Comming Soon")
+                          
+                            ],
+                          ),
+                        )
+                      );
+                    },
+                    child: SendCard())
                 ],
               ),
             ),
@@ -218,7 +258,7 @@ class SendCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 172,
+   
         padding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(19),
@@ -286,7 +326,7 @@ class BuyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-         width: 172,
+       
          padding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(19),

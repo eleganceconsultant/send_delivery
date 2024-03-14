@@ -14,75 +14,90 @@ class MainView extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Obx(() =>  getActiveTabPage(),),
+        body: Obx(
+          () => getActiveTabPage(),
+        ),
         bottomNavigationBar: Obx(
-          () => SalomonBottomBar(
-            currentIndex: mainCtr.currentIndex.value,
-            onTap: (value) {
-              mainCtr.onTap(value);
-            },
-            backgroundColor: Colors.redAccent.withOpacity(0.4),
-            curve: Curves.decelerate,
-            items: [
-              /// Home
-              SalomonBottomBarItem(
-                icon: ImageIcon(AssetImage("assets/Vector.png")),
-                title: Text(
-                  "หน้าแรก",
-                  style: GoogleFonts.notoSansThai(
-                    fontSize: 15,
-                  ),
-                ),
-                selectedColor: Color(0xFF000000),
+          () => Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
               ),
-
-              /// Likes
-              SalomonBottomBarItem(
-                icon: ImageIcon(AssetImage("assets/rectangle-list 1.png")),
-                title: Text(
-                  "รายการ",
-                  style: GoogleFonts.notoSansThai(
-                    fontSize: 15,
+              border: Border.all(
+                color: Colors.black,
+                width: 3
+              )
+            ),
+            child: SalomonBottomBar(
+              currentIndex: mainCtr.currentIndex.value,
+              onTap: (value) {
+                mainCtr.onTap(value);
+              },
+              backgroundColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.0),
+              curve: Curves.ease,
+              
+              items: [
+                /// Home
+                SalomonBottomBarItem(
+                  icon: ImageIcon(AssetImage("assets/Vector.png")),
+                  title: Text(
+                    "หน้าแรก",
+                    style: GoogleFonts.notoSansThai(
+                      fontSize: 15,
+                    ),
                   ),
+                  selectedColor: Color(0xFF000000),
                 ),
-                selectedColor: Colors.pink,
-              ),
-
-              /// Search
-              SalomonBottomBarItem(
-                icon: ImageIcon(AssetImage("assets/wallet 1.png")),
-                title: Text(
-                  "ชำระเงิน",
-                  style: GoogleFonts.notoSansThai(
-                    fontSize: 15,
+            
+                /// Likes
+                SalomonBottomBarItem(
+                  icon: ImageIcon(AssetImage("assets/rectangle-list 1.png")),
+                  title: Text(
+                    "รายการ",
+                    style: GoogleFonts.notoSansThai(
+                      fontSize: 15,
+                    ),
                   ),
+                  selectedColor: Colors.pink,
                 ),
-                selectedColor: Colors.orange,
-              ),
-
-              /// Profile
-              SalomonBottomBarItem(
-                icon: ImageIcon(AssetImage("assets/01 align center.png")),
-                title: Text(
-                  "ข้อความ",
-                  style: GoogleFonts.notoSansThai(
-                    fontSize: 15,
+            
+                /// Search
+                SalomonBottomBarItem(
+                  icon: ImageIcon(AssetImage("assets/wallet 1.png")),
+                  title: Text(
+                    "ชำระเงิน",
+                    style: GoogleFonts.notoSansThai(
+                      fontSize: 15,
+                    ),
                   ),
+                  selectedColor: Colors.orange,
                 ),
-                selectedColor: Colors.teal,
-              ),
-
-              SalomonBottomBarItem(
-                icon: ImageIcon(AssetImage("assets/circle-user 1.png")),
-                title: Text(
-                  "บัญชี",
-                  style: GoogleFonts.notoSansThai(
-                    fontSize: 15,
+            
+                /// Profile
+                SalomonBottomBarItem(
+                  icon: ImageIcon(AssetImage("assets/01 align center.png")),
+                  title: Text(
+                    "ข้อความ",
+                    style: GoogleFonts.notoSansThai(
+                      fontSize: 15,
+                    ),
                   ),
+                  selectedColor: Colors.teal,
                 ),
-                selectedColor: Colors.blue,
-              ),
-            ],
+            
+                SalomonBottomBarItem(
+                  icon: ImageIcon(AssetImage("assets/circle-user 1.png")),
+                  title: Text(
+                    "บัญชี",
+                    style: GoogleFonts.notoSansThai(
+                      fontSize: 15,
+                    ),
+                  ),
+                  selectedColor: Colors.blue,
+                ),
+              ],
+            ),
           ),
         ));
   }

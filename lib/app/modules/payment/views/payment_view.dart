@@ -19,17 +19,17 @@ class PaymentView extends GetView<PaymentController> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            GestureDetector(
-              onTap: () {
+            // GestureDetector(
+            //   onTap: () {
                
-                paymentCtr.paymentType("Scb");
-              },
-              child: Image.asset("assets/scb.png")),
-            GestureDetector(
-              onTap: () {
-                paymentCtr.paymentType("PromptPay");
-              },
-              child: Image.asset("assets/promptpay.png")),
+            //     paymentCtr.paymentType("Scb");
+            //   },
+            //   child: Image.asset("assets/scb.png")),
+            // GestureDetector(
+            //   onTap: () {
+            //     paymentCtr.paymentType("PromptPay");
+            //   },
+            //   child: Image.asset("assets/promptpay.png")),
             GestureDetector(
               onTap: () {
                 paymentCtr.paymentType("Cash");

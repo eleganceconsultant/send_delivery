@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:send_delivery/app/modules/main/views/main_view.dart';
+import 'package:send_delivery/app/modules/payment/views/payment4_view.dart';
 
 class Payment3View extends GetView {
   const Payment3View({Key? key}) : super(key: key);
@@ -16,7 +17,8 @@ class Payment3View extends GetView {
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: ElevatedButton(
           onPressed: () {
-            Get.offAll(MainView());
+            Get.to(Payment4View());
+            // Get.offAll(MainView());
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -24,7 +26,7 @@ class Payment3View extends GetView {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "เสร็จสิ้น",
+                  "ยืนยัน",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
